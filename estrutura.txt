@@ -1,0 +1,21 @@
+portal-omega
+├── docs
+├── estrutura.txt
+├── index.html
+├── package.json
+├── public
+├── README.md
+├── scripts
+├── src
+│   ├── assets
+│   │   ├── css
+│   │   ├── docs
+│   │   ├── img
+│   │   └── js
+│   ├── components
+│   ├── pages
+│   ├── services
+│   └── utils
+└── tests
+
+15 directories, 4 files
