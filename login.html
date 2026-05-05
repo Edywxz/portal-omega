@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="Login mock da Area do Estudante Omega com dados academicos gerados localmente."
+    >
+    <title>Login | Area do Estudante Omega</title>
+    <link rel="stylesheet" href="src/assets/css/styles.css">
+</head>
+<body data-page="login">
+    <a class="skip-link" href="#conteudo">Pular para o conteudo principal</a>
+
+    <header class="simple-header">
+        <div class="container simple-header-inner">
+            <a class="brand" href="index.html" aria-label="Voltar ao Portal Institucional Omega">
+                <span class="brand-mark" aria-hidden="true">
+                    <img src="src/assets/img/omega-icon.svg" alt="">
+                </span>
+                <span class="brand-copy">
+                    <strong>Omega</strong>
+                    <span>Area do Estudante</span>
+                </span>
+            </a>
+
+            <a class="button button-secondary" href="index.html">Voltar ao portal</a>
+        </div>
+    </header>
+
+    <main class="student-shell" id="conteudo">
+        <section class="login-section">
+            <div class="container login-grid">
+                <div class="login-copy">
+                    <p class="eyebrow">Acesso academico simulado</p>
+                    <h1>Entre para visualizar sua area do estudante.</h1>
+                    <p>
+                        Informe um nome e uma senha para gerar uma experiencia academica mock.
+                        As mesmas credenciais sempre criam os mesmos dados locais nesta aba.
+                    </p>
+                </div>
+
+                <form class="login-card" id="student-login-form" novalidate>
+                    <div>
+                        <label for="student-name">Nome</label>
+                        <input
+                            id="student-name"
+                            name="student-name"
+                            type="text"
+                            autocomplete="name"
+                            placeholder="Seu nome completo"
+                            required
+                        >
+                    </div>
+
+                    <div>
+                        <label for="student-password">Senha</label>
+                        <input
+                            id="student-password"
+                            name="student-password"
+                            type="password"
+                            autocomplete="current-password"
+                            placeholder="Sua senha"
+                            required
+                        >
+                    </div>
+
+                    <p class="form-error" id="login-error" aria-live="polite"></p>
+
+                    <button class="button button-primary" type="submit">Entrar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="src/assets/js/page-transition.js"></script>
+    <script src="src/assets/js/student-area.js"></script>
+</body>
+</html>

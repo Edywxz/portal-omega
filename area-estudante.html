@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="Painel mock da Area do Estudante Omega com dados academicos, disciplinas, notas e historico."
+    >
+    <title>Area do Estudante | Omega</title>
+    <link rel="stylesheet" href="src/assets/css/styles.css">
+</head>
+<body data-page="student-area">
+    <a class="skip-link" href="#conteudo">Pular para o conteudo principal</a>
+
+    <header class="simple-header">
+        <div class="container simple-header-inner">
+            <a class="brand" href="index.html" aria-label="Voltar ao Portal Institucional Omega">
+                <span class="brand-mark" aria-hidden="true">
+                    <img src="src/assets/img/omega-icon.svg" alt="">
+                </span>
+                <span class="brand-copy">
+                    <strong>Omega</strong>
+                    <span>Area do Estudante</span>
+                </span>
+            </a>
+
+            <button class="button button-secondary" id="logout-button" type="button">Sair</button>
+        </div>
+    </header>
+
+    <main class="student-shell" id="conteudo">
+        <section class="student-hero">
+            <div class="container student-hero-grid">
+                <div>
+                    <p class="eyebrow">Painel academico</p>
+                    <h1 id="student-greeting">Bem-vindo.</h1>
+                    <p id="student-summary">
+                        Dados academicos mock gerados localmente a partir do nome e senha informados.
+                    </p>
+                </div>
+
+                <div class="student-status-card">
+                    <span>Situacao</span>
+                    <strong id="student-status">Carregando</strong>
+                    <p id="student-register">Matricula --</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="student-section">
+            <div class="container student-dashboard">
+                <article class="student-panel student-profile-panel">
+                    <div class="panel-heading">
+                        <p class="eyebrow">Dados do aluno</p>
+                        <h2>Cadastro academico</h2>
+                    </div>
+
+                    <dl class="student-data-list" id="student-data-list"></dl>
+                </article>
+
+                <article class="student-panel">
+                    <div class="panel-heading">
+                        <p class="eyebrow">Resumo do semestre</p>
+                        <h2>Indicadores principais</h2>
+                    </div>
+
+                    <div class="metric-grid" id="student-metrics"></div>
+                </article>
+
+                <article class="student-panel student-wide-panel">
+                    <div class="panel-heading">
+                        <p class="eyebrow">Cursos e disciplinas</p>
+                        <h2>Notas, faltas e horarios</h2>
+                    </div>
+
+                    <div class="responsive-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Disciplina</th>
+                                    <th>Professor</th>
+                                    <th>Horario</th>
+                                    <th>Nota</th>
+                                    <th>Faltas</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="discipline-table-body"></tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <article class="student-panel">
+                    <div class="panel-heading">
+                        <p class="eyebrow">Historico</p>
+                        <h2>Semestres anteriores</h2>
+                    </div>
+
+                    <div class="timeline-list" id="history-list"></div>
+                </article>
+
+                <article class="student-panel">
+                    <div class="panel-heading">
+                        <p class="eyebrow">Agenda</p>
+                        <h2>Proximos prazos</h2>
+                    </div>
+
+                    <div class="timeline-list" id="deadline-list"></div>
+                </article>
+
+                <article class="student-panel">
+                    <div class="panel-heading">
+                        <p class="eyebrow">Financeiro</p>
+                        <h2>Resumo mock</h2>
+                    </div>
+
+                    <dl class="student-data-list compact-list" id="finance-list"></dl>
+                </article>
+
+                <article class="student-panel">
+                    <div class="panel-heading">
+                        <p class="eyebrow">Secretaria</p>
+                        <h2>Solicitacoes recentes</h2>
+                    </div>
+
+                    <div class="timeline-list" id="request-list"></div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script src="src/assets/js/page-transition.js"></script>
+    <script src="src/assets/js/student-area.js"></script>
+</body>
+</html>
