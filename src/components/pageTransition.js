@@ -57,7 +57,7 @@ const shouldDelayNavigation = (event, anchor) => {
     return isSameOrigin && !(isSameDocument && url.hash);
 };
 
-const goToWithTransition = (url) => {
+export const goToWithTransition = (url) => {
     if (omegaPageTransitionActive) {
         return;
     }
@@ -73,24 +73,30 @@ const goToWithTransition = (url) => {
     }, OMEGA_PAGE_TRANSITION_DELAY);
 };
 
-document.addEventListener("click", (event) => {
-    const anchor = event.target.closest("a[href]");
+export const initPageTransition = () => {
+    document.addEventListener("click", (event) => {
+        const anchor = event.target.closest("a[href]");
 
-    if (!anchor || !shouldDelayNavigation(event, anchor)) {
-        return;
-    }
+        if (!anchor || !shouldDelayNavigation(event, anchor)) {
+            return;
+        }
 
-    event.preventDefault();
-    goToWithTransition(anchor.href);
-});
+        event.preventDefault();
+        goToWithTransition(anchor.href);
+    });
 
-window.addEventListener("pageshow", () => {
-    omegaPageTransitionActive = false;
-    document.body.classList.remove("page-transitioning");
-    document.querySelector(".page-loader")?.setAttribute("aria-hidden", "true");
-});
+    window.addEventListener("pageshow", () => {
+        omegaPageTransitionActive = false;
+        document.body.classList.remove("page-transitioning");
+        document.querySelector(".page-loader")?.setAttribute("aria-hidden", "true");
+    });
+};
 
-window.OmegaPageTransition = {
+export const navigateToPage = (url) => {
+    goToWithTransition(url);
+};
+
+export const pageTransition = {
     delay: OMEGA_PAGE_TRANSITION_DELAY,
     goTo: goToWithTransition
 };
