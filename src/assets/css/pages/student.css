@@ -1,0 +1,261 @@
+.simple-header {
+    background: rgba(252, 252, 252, 0.94);
+    border-bottom: 1px solid var(--neutral);
+}
+
+.simple-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.2rem 0;
+}
+
+.student-shell {
+    min-height: calc(100vh - 5.8rem);
+}
+
+.login-section,
+.student-hero,
+.student-section {
+    padding: 3rem 0;
+}
+
+.login-grid,
+.student-hero-grid,
+.student-dashboard,
+.metric-grid {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.login-copy {
+    align-self: center;
+    max-width: 42rem;
+}
+
+.login-copy h1,
+.student-hero h1 {
+    margin: 1rem 0 1rem;
+    font-size: clamp(2.4rem, 5vw, 4.4rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+}
+
+.login-copy p,
+.student-hero p,
+.panel-heading p,
+.timeline-item span,
+.student-data-list dt,
+.metric-card span {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.login-card,
+.student-panel,
+.student-status-card,
+.metric-card {
+    border: 1px solid var(--neutral);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: var(--shadow-card);
+}
+
+.login-card {
+    display: grid;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.login-card label {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: var(--text);
+    font-weight: 800;
+}
+
+.login-card input {
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0 1rem;
+    border: 1px solid var(--neutral);
+    border-radius: var(--radius-sm);
+    background: #fff;
+    color: var(--text);
+    outline: 0;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.login-card input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(116, 155, 255, 0.18);
+}
+
+.login-card button[disabled] {
+    cursor: wait;
+    opacity: 0.78;
+}
+
+.form-error {
+    min-height: 1.5rem;
+    color: #a03434;
+    font-weight: 700;
+}
+
+.student-hero-grid {
+    align-items: stretch;
+}
+
+.student-status-card {
+    display: grid;
+    align-content: center;
+    gap: 0.4rem;
+    padding: 1.5rem;
+    background:
+        linear-gradient(135deg, rgba(116, 155, 255, 0.15), rgba(255, 255, 255, 0.92)),
+        #fff;
+}
+
+.student-status-card span {
+    color: var(--primary);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.student-status-card strong {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.student-panel {
+    display: grid;
+    gap: 1.2rem;
+    padding: 1.5rem;
+}
+
+.panel-heading {
+    display: grid;
+    gap: 0.65rem;
+}
+
+.panel-heading h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    line-height: 1.08;
+}
+
+.student-data-list {
+    display: grid;
+    grid-template-columns: minmax(8rem, 0.8fr) minmax(0, 1.2fr);
+    gap: 0.75rem 1rem;
+    margin: 0;
+}
+
+.student-data-list dt {
+    font-weight: 700;
+}
+
+.student-data-list dd {
+    margin: 0;
+    color: var(--text);
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.compact-list {
+    grid-template-columns: minmax(7rem, 0.8fr) minmax(0, 1.2fr);
+}
+
+.metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.metric-card {
+    display: grid;
+    gap: 0.35rem;
+    padding: 1rem;
+    box-shadow: none;
+}
+
+.metric-card strong {
+    font-size: 1.75rem;
+}
+
+.responsive-table {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.responsive-table table {
+    width: 100%;
+    min-width: 48rem;
+    border-collapse: collapse;
+}
+
+.responsive-table th,
+.responsive-table td {
+    padding: 0.95rem;
+    border-bottom: 1px solid var(--neutral);
+    text-align: left;
+    vertical-align: middle;
+}
+
+.responsive-table th {
+    color: var(--muted);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+}
+
+.responsive-table td {
+    color: var(--text);
+    font-weight: 700;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.status-good {
+    background: #dff7ea;
+    color: #11633a;
+}
+
+.status-watch {
+    background: #fff2cf;
+    color: #7a5300;
+}
+
+.status-risk {
+    background: #ffe1e1;
+    color: #9b2c2c;
+}
+
+.timeline-list {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--neutral);
+}
+
+.timeline-item:last-child {
+    border-bottom: 0;
+}
+
+.timeline-item div {
+    display: grid;
+    gap: 0.2rem;
+}

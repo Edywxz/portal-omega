@@ -1,0 +1,234 @@
+@media (min-width: 720px) {
+    .branding-inner,
+    .services-panel,
+    .footer-grid {
+        grid-template-columns: 1.1fr auto;
+    }
+
+    .hero-grid,
+    .overview-grid,
+    .programs-grid {
+        grid-template-columns: 1.05fr 0.95fr;
+    }
+
+    .quick-actions-grid,
+    .news-grid,
+    .events-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .overview-cards,
+    .program-list,
+    .service-tags,
+    .login-grid,
+    .student-hero-grid,
+    .student-dashboard {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .student-wide-panel {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (min-width: 1024px) {
+    .branding-inner {
+        grid-template-columns: auto minmax(18rem, 30rem) minmax(14rem, auto);
+    }
+
+    .quick-actions-grid,
+    .news-grid,
+    .events-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .news-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .events-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .overview-cards,
+    .program-list {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1.2fr 0.8fr 0.8fr;
+    }
+
+    .login-grid {
+        grid-template-columns: 1fr minmax(20rem, 28rem);
+    }
+}
+
+@media (max-width: 1023px) {
+    .nav-inner {
+        grid-template-columns: auto 1fr auto;
+        padding: 0.7rem 0;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .main-nav {
+        display: none;
+        grid-column: 1 / -1;
+        order: 5;
+        padding-top: 0.35rem;
+    }
+
+    .main-nav.is-open {
+        display: block;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 0.55rem;
+    }
+
+    .nav-trigger {
+        width: 100%;
+        min-height: 3.35rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 16px;
+    }
+
+    .nav-trigger::after {
+        content: "+";
+        font-size: 1.2rem;
+    }
+
+    .nav-trigger[aria-expanded="true"]::after {
+        content: "−";
+    }
+
+    .dropdown {
+        position: static;
+        min-width: 0;
+        margin-top: 0.45rem;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    .nav-item.is-open .dropdown {
+        display: grid;
+    }
+
+    .nav-cta {
+        justify-self: end;
+    }
+
+    .nav-quick-links {
+        justify-self: end;
+    }
+}
+
+@media (max-width: 719px) {
+    .hero-section {
+        padding-top: 2rem;
+    }
+
+    .header-shortcuts,
+    .nav-quick-links,
+    .hero-actions,
+    .hero-features {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .button,
+    .nav-quick-links a,
+    .nav-cta {
+        width: 100%;
+    }
+
+    .nav-inner {
+        grid-template-columns: auto 1fr;
+    }
+
+    .nav-quick-links {
+        grid-column: 1 / -1;
+        order: 3;
+    }
+
+    .nav-cta {
+        grid-column: 1 / -1;
+        justify-self: stretch;
+        order: 4;
+    }
+
+    .hero-visual {
+        min-height: 22rem;
+    }
+
+    .hero-card {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .hero-photo {
+        min-height: 22rem;
+    }
+
+    .quick-card {
+        min-height: 11.5rem;
+    }
+
+    .simple-header-inner,
+    .timeline-item {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .simple-header-inner .button {
+        width: 100%;
+    }
+
+    .login-section,
+    .student-hero,
+    .student-section {
+        padding: 2rem 0;
+    }
+
+    .student-data-list,
+    .compact-list {
+        grid-template-columns: 1fr;
+    }
+
+    .metric-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .page-transitioning .page-loader span {
+        transform: translateX(0);
+    }
+}

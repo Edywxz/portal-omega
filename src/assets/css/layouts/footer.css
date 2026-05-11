@@ -1,0 +1,29 @@
+.site-footer {
+    margin-top: 3rem;
+    padding: 3rem 0;
+    background: #f2f6ff;
+    border-top: 1px solid var(--neutral);
+}
+
+.footer-grid {
+    gap: 1.5rem;
+}
+
+.footer-brand {
+    display: grid;
+    gap: 1rem;
+}
+
+.footer-grid h2 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.75rem;
+    color: var(--muted);
+}

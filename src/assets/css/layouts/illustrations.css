@@ -1,0 +1,104 @@
+/*Arthur destrói toda a beleza de codificar, parte 1*/
+
+.section-illustration{
+    position: relative;
+    overflow: hidden;
+}
+
+.section-illustration .container{
+    position: relative;
+    z-index: 2;
+}
+
+.quick-actions-section,
+.overview-section,
+.programs-section,
+.services-section{
+    min-height: 700px;
+
+    display: flex;
+    align-items: center;
+}
+
+.background-illustration1,
+.background-illustration2,
+.background-illustration3,
+.background-illustration4{
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-repeat: no-repeat;
+
+    border-radius: 32px; /*Não importa onde eu coloque, não vai. Então é aqui onde vai ficar*/
+    overflow: hidden;
+
+    z-index: 0;
+
+    opacity: 0.65;
+}
+
+/* Illustration Quick-Actions */
+
+.background-illustration1{
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.1),
+            rgba(252,252,252,1)
+        ),
+        url("../../img/Professor_1.png");
+
+    background-size: 680px;
+    background-position-x: 75%;
+    background-position-y: top;
+}
+
+/* Illustration Overview */
+
+.background-illustration2{
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.1),
+            rgba(252,252,252,1)
+        ),
+        url("../../img/Estudo_1.png");
+
+    background-size: 700px;
+    background-position-x: 25%;
+    background-position-y: 30%;
+}
+
+/* Illustration Program */
+
+.background-illustration3{
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.1),
+            rgba(252,252,252,1)
+        ),
+        url("../../img/Estudo_2.jpg");
+
+    background-size: 700px;
+    background-position-x: 25%;
+    background-position-y: 30%;
+}
+
+/* Illustration Services */
+
+.background-illustration4{
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.1),
+            rgba(252,252,252,1)
+        ),
+        url("../../img/Opiniao_1.png");
+
+    background-size: 60%;
+    background-position: center top;
+}

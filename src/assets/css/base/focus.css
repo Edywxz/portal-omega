@@ -1,0 +1,18 @@
+:focus-visible {
+    outline: 3px solid rgba(116, 155, 255, 0.4);
+    outline-offset: 3px;
+}
+
+@keyframes page-loader-progress {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    70% {
+        transform: translateX(-18%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
