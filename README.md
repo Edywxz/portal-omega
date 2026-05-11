@@ -61,6 +61,23 @@ portal-omega/
 - Design Responsivo e funcionamento de links/páginas base;
 - Painel base permitindo a aprovação do stakeholder.
 
+## 7. Testes estáticos
+Este projeto não depende de Node.js. Para verificar carregamento das páginas, links locais,
+imports CSS/JS, assets e contratos básicos da estrutura atômica, execute:
+
+```bash
+python3 scripts/check_static.py
+```
+
+Para ver cada verificação realizada:
+
+```bash
+python3 scripts/check_static.py --verbose
+```
+
+O script usa apenas a biblioteca padrão do Python e sobe um servidor HTTP temporário
+para checar se páginas e arquivos estáticos respondem corretamente.
+
 ---
 
 📖 **Guia de Contribuição:** Veja o arquivo [CONTRIBUTING.md](./CONTRIBUTING.md) para saber mais sobre regras de commits, versionamento e como interagir com o fluxo de Git do portal.
