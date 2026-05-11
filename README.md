@@ -28,9 +28,10 @@ As principais entregas incluem:
 - Prototipação baseada nas telas projetadas.
 
 ### 3.3 Funcionalidades
-- Página inicial institucional e Sobre a Instituição;
-- Catálogo de cursos, calendário acadêmico, notícias, eventos;
-- Formulário de contato;
+- Página inicial institucional e página dedicada Sobre a Instituição;
+- Catálogo de cursos com dados institucionais mock;
+- Calendário acadêmico, notícias e eventos em páginas dedicadas;
+- Formulário de contato simulado com validação client-side e armazenamento local;
 - Estrutura escalável para futura Área Administrativa / CMS.
 
 ## 4. Estrutura Atômica de Pastas

@@ -24,7 +24,16 @@ from urllib.request import Request, urlopen
 
 
 ROOT = Path(__file__).resolve().parents[1]
-HTML_PAGES = ("index.html", "login.html", "area-estudante.html")
+HTML_PAGES = (
+    "index.html",
+    "sobre.html",
+    "cursos.html",
+    "noticias.html",
+    "eventos.html",
+    "contato.html",
+    "login.html",
+    "area-estudante.html",
+)
 REQUIRED_DIRS = (
     "src/assets/css",
     "src/assets/img",
@@ -38,6 +47,13 @@ REQUIRED_DIRS = (
     "tests",
 )
 REQUIRED_HOME_SECTIONS = ("conteudo", "acoes-rapidas", "sobre", "noticias", "cursos", "eventos", "servicos", "contato")
+PAGE_CONTRACTS = {
+    "sobre.html": {"data-page": "about", "ids": ("conteudo", "transparencia", "indicadores")},
+    "cursos.html": {"data-page": "courses", "ids": ("conteudo", "course-list", "vestibular", "graduacao", "extensao", "continuada")},
+    "noticias.html": {"data-page": "news", "ids": ("conteudo", "news-list")},
+    "eventos.html": {"data-page": "events", "ids": ("conteudo", "event-list", "calendario", "editais")},
+    "contato.html": {"data-page": "contact", "ids": ("conteudo", "contato", "contact-form", "contact-status", "contact-channels", "ouvidoria")},
+}
 LEGACY_REFERENCES = ("src/assets/css/styles.css", "src/assets/js/script.js", "src/assets/js/student-area.js", "src/assets/js/page-transition.js")
 LARGE_ASSET_BYTES = 2 * 1024 * 1024
 
@@ -198,6 +214,22 @@ def check_html_contracts(report: CheckReport) -> list[Path]:
         report.pass_("Student area page has data-page contract")
     else:
         report.fail('area-estudante.html must include body data-page="student-area"')
+
+    for page, contract in PAGE_CONTRACTS.items():
+        page_text = read_text(ROOT / page, report)
+        page_parser = parse_html(ROOT / page, report)
+        expected_page = contract["data-page"]
+
+        if f'data-page="{expected_page}"' in page_text:
+            report.pass_(f"{page} has data-page contract")
+        else:
+            report.fail(f'{page} must include body data-page="{expected_page}"')
+
+        for element_id in contract["ids"]:
+            if element_id in page_parser.ids:
+                report.pass_(f"{page} has required id: #{element_id}")
+            else:
+                report.fail(f"{page} is missing required id: #{element_id}")
 
     return resources
 

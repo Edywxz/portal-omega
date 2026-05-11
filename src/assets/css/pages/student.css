@@ -130,6 +130,7 @@
 
 .student-panel {
     display: grid;
+    align-content: start;
     gap: 1.2rem;
     padding: 1.5rem;
 }
@@ -146,6 +147,7 @@
 
 .student-data-list {
     display: grid;
+    align-content: start;
     grid-template-columns: minmax(8rem, 0.8fr) minmax(0, 1.2fr);
     gap: 0.75rem 1rem;
     margin: 0;
@@ -258,4 +260,139 @@
 .timeline-item div {
     display: grid;
     gap: 0.2rem;
+}
+
+.academic-calendar {
+    display: grid;
+    gap: 1rem;
+}
+
+.calendar-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.calendar-month-title {
+    font-size: 1.25rem;
+    line-height: 1.2;
+}
+
+.calendar-nav-button {
+    min-height: 2.5rem;
+    padding: 0 0.9rem;
+    border: 1px solid var(--neutral);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--text);
+    font-weight: 800;
+    transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.calendar-nav-button:hover,
+.calendar-nav-button:focus-visible {
+    transform: translateY(-1px);
+    background: var(--secondary);
+    border-color: rgba(116, 155, 255, 0.3);
+}
+
+.calendar-weekdays,
+.calendar-table-body {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.calendar-weekdays {
+    gap: 0.4rem;
+}
+
+.calendar-weekdays span {
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.calendar-table-body {
+    overflow: hidden;
+    border: 1px solid var(--neutral);
+    border-radius: var(--radius-md);
+    background: #fff;
+}
+
+.calendar-cell {
+    display: grid;
+    align-content: start;
+    gap: 0.35rem;
+    min-height: 5.4rem;
+    padding: 0.55rem;
+    border-right: 1px solid var(--neutral);
+    border-bottom: 1px solid var(--neutral);
+    background: rgba(255, 255, 255, 0.78);
+}
+
+.calendar-cell:nth-child(7n) {
+    border-right: 0;
+}
+
+.calendar-cell.is-empty {
+    background: #f6f8ff;
+}
+
+.calendar-cell.has-event {
+    background: rgba(196, 212, 255, 0.22);
+}
+
+.calendar-day-number {
+    color: var(--text);
+    font-weight: 900;
+}
+
+.calendar-event-button {
+    width: 100%;
+    min-height: 1.7rem;
+    padding: 0.2rem 0.35rem;
+    border: 0;
+    border-radius: 0.5rem;
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 900;
+    text-align: left;
+}
+
+.calendar-event-button + .calendar-event-button {
+    background: #7a5300;
+}
+
+.calendar-detail {
+    display: grid;
+    gap: 0.6rem;
+    padding: 1rem;
+    border: 1px solid var(--neutral);
+    border-radius: var(--radius-md);
+    background:
+        linear-gradient(135deg, rgba(116, 155, 255, 0.1), rgba(255, 255, 255, 0.96)),
+        #fff;
+}
+
+.calendar-type {
+    color: var(--primary);
+    font-size: 0.76rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.calendar-detail h3 {
+    font-size: 1rem;
+    line-height: 1.25;
+}
+
+.calendar-detail p,
+.empty-state {
+    color: var(--muted);
+    line-height: 1.55;
 }
