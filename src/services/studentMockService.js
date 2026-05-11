@@ -88,6 +88,117 @@ const requestTypes = [
     "Atualizacao cadastral"
 ];
 
+const academicCalendar = [
+    {
+        month: "Janeiro",
+        day: "12",
+        historyLabel: "Rematricula confirmada",
+        historyMeta: "Planejamento academico iniciado",
+        deadlineLabel: "Atualizacao cadastral",
+        deadlineDate: "12 de Janeiro",
+        deadlineStatus: "Concluido"
+    },
+    {
+        month: "Fevereiro",
+        day: "05",
+        historyLabel: "Inicio das aulas",
+        historyMeta: "Ambientacao e plano de estudos",
+        deadlineLabel: "Semana de acolhimento",
+        deadlineDate: "5 de Fevereiro",
+        deadlineStatus: "Concluido"
+    },
+    {
+        month: "Marco",
+        day: "18",
+        historyLabel: "Atividades diagnosticas",
+        historyMeta: "Frequencia consolidada",
+        deadlineLabel: "Entrega de atividades diagnosticas",
+        deadlineDate: "18 de Marco",
+        deadlineStatus: "Concluido"
+    },
+    {
+        month: "Abril",
+        day: "09",
+        historyLabel: "Primeira avaliacao",
+        historyMeta: "Acompanhamento de desempenho",
+        deadlineLabel: "Primeira avaliacao bimestral",
+        deadlineDate: "9 de Abril",
+        deadlineStatus: "Concluido"
+    },
+    {
+        month: "Maio",
+        day: "14",
+        historyLabel: "Projetos e extensao",
+        historyMeta: "Participacao em atividades integradoras",
+        deadlineLabel: "Inscricao em projetos de extensao",
+        deadlineDate: "14 de Maio",
+        deadlineStatus: "Aberto"
+    },
+    {
+        month: "Junho",
+        day: "20",
+        historyLabel: "Fechamento parcial",
+        historyMeta: "Provas e revisao de conteudos",
+        deadlineLabel: "Semana de provas",
+        deadlineDate: "20 de Junho",
+        deadlineStatus: "Em breve"
+    },
+    {
+        month: "Julho",
+        day: "08",
+        historyLabel: "Recesso academico",
+        historyMeta: "Editais e orientacoes publicadas",
+        deadlineLabel: "Consulta de editais",
+        deadlineDate: "8 de Julho",
+        deadlineStatus: "Em breve"
+    },
+    {
+        month: "Agosto",
+        day: "04",
+        historyLabel: "Retomada do semestre",
+        historyMeta: "Plano de estudos atualizado",
+        deadlineLabel: "Retorno das aulas",
+        deadlineDate: "4 de Agosto",
+        deadlineStatus: "Em breve"
+    },
+    {
+        month: "Setembro",
+        day: "16",
+        historyLabel: "Atividades integradoras",
+        historyMeta: "Projetos avaliativos em andamento",
+        deadlineLabel: "Entrega parcial do projeto integrador",
+        deadlineDate: "16 de Setembro",
+        deadlineStatus: "Prioritario"
+    },
+    {
+        month: "Outubro",
+        day: "10",
+        historyLabel: "Segunda avaliacao",
+        historyMeta: "Periodo avaliativo regular",
+        deadlineLabel: "Segunda avaliacao bimestral",
+        deadlineDate: "10 de Outubro",
+        deadlineStatus: "Em breve"
+    },
+    {
+        month: "Novembro",
+        day: "18",
+        historyLabel: "Recuperacao e entregas finais",
+        historyMeta: "Acompanhamento de pendencias",
+        deadlineLabel: "Entrega final de atividades",
+        deadlineDate: "18 de Novembro",
+        deadlineStatus: "Em breve"
+    },
+    {
+        month: "Dezembro",
+        day: "06",
+        historyLabel: "Fechamento do semestre",
+        historyMeta: "Resultados finais e orientacoes",
+        deadlineLabel: "Publicacao de resultados finais",
+        deadlineDate: "6 de Dezembro",
+        deadlineStatus: "Em breve"
+    }
+];
+
 const createCpf = (rng) => {
     const digits = [String(numberBetween(1, 9, rng))];
 
@@ -154,29 +265,28 @@ const createDisciplines = (catalog, rng) => {
     });
 };
 
-const createHistory = (rng) => [1, 2, 3].map((offset) => ({
-    term: `${OMEGA_ACADEMIC_YEAR - Math.ceil(offset / 2)}.${offset % 2 === 0 ? "2" : "1"}`,
-    average: decimalBetween(6.8, 9.4, rng).toFixed(1),
-    credits: numberBetween(18, 24, rng),
-    status: pick(["Concluido", "Concluido", "Em validacao"], rng)
+const createHistory = () => academicCalendar.map((item, monthIndex) => ({
+    id: `historico-${monthIndex}`,
+    month: item.month,
+    monthIndex,
+    day: item.day,
+    type: "Acompanhamento",
+    title: item.historyLabel,
+    description: item.historyMeta,
+    status: item.deadlineStatus === "Concluido" ? "Concluido" : "Planejado"
 }));
 
-const createDeadlines = (rng) => {
-    const items = [
-        "Entrega de atividades avaliativas",
-        "Renovacao de matricula",
-        "Semana de provas",
-        "Solicitacao de documentos",
-        "Encontro com coordenacao"
-    ];
-    const months = ["Maio", "Junho", "Julho", "Agosto"];
-
-    return items.slice(0, 4).map((label) => ({
-        label,
-        date: `${numberBetween(6, 28, rng)} de ${pick(months, rng)}`,
-        status: pick(["Aberto", "Em breve", "Prioritario"], rng)
-    }));
-};
+const createDeadlines = () => academicCalendar.map((item, monthIndex) => ({
+    id: `agenda-${monthIndex}`,
+    month: item.month,
+    monthIndex,
+    day: item.day,
+    type: "Prazo academico",
+    title: item.deadlineLabel,
+    description: item.deadlineDate,
+    date: item.deadlineDate,
+    status: item.deadlineStatus
+}));
 
 const createRequests = (rng) => requestTypes.slice(0, 4).map((label) => ({
     label,
@@ -194,6 +304,7 @@ export const createStudentMock = (name, password) => {
     const totalAbsences = disciplines.reduce((total, item) => total + item.absences, 0);
     const totalWorkload = disciplines.reduce((total, item) => total + item.workload, 0);
     const frequency = Math.max(0, Math.round(100 - ((totalAbsences * 2) / totalWorkload) * 100));
+    const pendingCount = disciplines.filter((discipline) => discipline.status !== "Regular").length;
     const period = `${numberBetween(1, 8, rng)}o periodo`;
     const enrollmentYear = numberBetween(2021, OMEGA_ACADEMIC_YEAR, rng);
     const enrollment = `${enrollmentYear}${numberBetween(1, 2, rng)}${numberBetween(10000, 99999, rng)}`;
@@ -208,13 +319,13 @@ export const createStudentMock = (name, password) => {
         period,
         campus: pick(campuses, rng),
         academicStatus: average >= 7 && frequency >= 75 ? "Regular" : "Em acompanhamento",
-        cr: average.toFixed(1),
         progress: `${numberBetween(38, 88, rng)}%`,
         frequency: `${frequency}%`,
-        credits: totalWorkload,
+        disciplineCount: disciplines.length,
+        pendingCount,
         disciplines,
-        history: createHistory(rng),
-        deadlines: createDeadlines(rng),
+        history: createHistory(),
+        deadlines: createDeadlines(),
         finance: {
             status: financialStatus,
             currentBill: financialStatus === "Quitado" ? "R$ 0,00" : `R$ ${numberBetween(580, 1420, rng)},00`,
