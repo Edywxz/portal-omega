@@ -134,6 +134,13 @@
     gap: 1.2rem;
     padding: 1.5rem;
 }
+.finances-card {
+    height: 300px;
+}
+
+.secretaria-card {
+    align-content: flex-start;
+}
 
 .panel-heading {
     display: grid;
